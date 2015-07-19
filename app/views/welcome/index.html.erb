@@ -3,7 +3,7 @@
 <h1>MR_BOTS</h1>
   <% notice %>
   <% if current_account %>  
-    Current account: <%= current_user.name %>!  
+    Current account: <%= current_account.name %>!  
   <% else %>  
     <%= link_to "Sign in with Twitter", "/auth/twitter" %>  
   <% end %>  
