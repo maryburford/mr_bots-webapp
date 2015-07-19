@@ -3,9 +3,9 @@ class Account < ActiveRecord::Base
     create! do |account|  
       account.provider = auth["provider"]  
       account.uid = auth["uid"]  
-      account.name = auth["user_info"]["name"]
-      account.token = auth["oauth_token"]
-      account.secret = auth["oauth_token_secret"]
+      account.name = auth["info"]["name"]
+      account.token = auth["credentials"]["token"]
+      account.secret = auth["credentials"]["secret"]
     end
   end
   
