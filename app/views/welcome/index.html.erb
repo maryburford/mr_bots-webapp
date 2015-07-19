@@ -1,3 +1,16 @@
 <html>
-<img src="/welcome_bob.png">
+<div style="width: 500px; margin: 0 auto;">
+<h1>MR_BOTS</h1>
+<%= link_to "Sign in with Twitter", "/auth/twitter" %>  
+<br>
+<br>
+<form action="/tweet" method="post">
+  <label for="tweet-text">Enter text you'd like to tweet:</label>
+  <input name="tweet-text" type="text">
+  <input type="submit">
+</form>
+<br>
+<br>
+<img style="width: 500px;" src="/welcome_bob.png">
+</div>
 </html>
