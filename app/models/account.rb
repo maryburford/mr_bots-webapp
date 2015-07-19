@@ -10,14 +10,15 @@ class Account < ActiveRecord::Base
   end
   
   def tweet(message)
-      Twitter.configure do |config|
-	config.consumer_key = 'tdGB5bGdjqlM3hRVIA3VYY0n9'
-	config.consumer_secret = 'vaAejiob0uko8YPu81tTxB585cvA4G1WmKmwGLGESpMOw5MXxr'
-	config.oauth_token = self.token
-	config.oauth_token_secret = self.secret
+      client = Twitter::REST::Client.new do |config|
+	config.consumer_key = "tdGB5bGdjqlM3hRVIA3VYY0n9"
+	config.consumer_secret = "vaAejiob0uko8YPu81tTxB585cvA4G1WmKmwGLGESpMOw5MXxr"
+	config.access_token = self.token
+	config.access_token_secret = self.secret
       end
 
-      client = Twitter::Client.new
+      puts(self.token);
+      puts(self.secret);
       client.update(message)
   end
 

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
    root 'welcome#index'
 
    get "/auth/:provider/callback" => "sessions#create"  
-   match "/tweet" => "accounts#tweet", :via => [:post], :as => :tweet
+   match "/tweet" => "account#tweet", :via => [:post], :as => :tweet
 
 
   # Example of regular route:
