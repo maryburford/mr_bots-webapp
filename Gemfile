@@ -45,4 +45,5 @@ end
 
 # gems added by us
 gem "omniauth"
+gem "omniauth-twitter"
 
