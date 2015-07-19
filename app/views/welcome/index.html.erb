@@ -4,9 +4,9 @@
 <%= link_to "Sign in with Twitter", "/auth/twitter" %>  
 <br>
 <br>
-<form action="/tweet" method="post">
-  <label for="tweet-text">Enter text you'd like to tweet:</label>
-  <input name="tweet-text" type="text">
+<form name="tweet" action="/tweet" method="post">
+  <label for="message">Enter text you'd like to tweet:</label>
+  <input name="message" type="text">
   <input type="submit">
 </form>
 <br>
