@@ -1,7 +1,12 @@
 <html>
 <div style="width: 500px; margin: 0 auto;">
 <h1>MR_BOTS</h1>
-<%= link_to "Sign in with Twitter", "/auth/twitter" %>  
+  <% notice %>
+  <% if current_account %>  
+    Current account: <%= current_user.name %>!  
+  <% else %>  
+    <%= link_to "Sign in with Twitter", "/auth/twitter" %>  
+  <% end %>  
 <br>
 <br>
 <form name="tweet" action="/tweet" method="post">

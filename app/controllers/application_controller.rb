@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
     
   private  
   def current_account  
-    @current_account ||= Account.find(session[:user_id]) if session[:user_id]  
+    @current_account ||= Account.find(session[:uid]) if session[:uid]  
   end  
 end
