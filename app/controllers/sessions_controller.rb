@@ -5,4 +5,9 @@ class SessionsController < ApplicationController
     session[:account_uid] = account.uid
     redirect_to root_url  
   end  
+ 
+  def destroy
+    session[:account_uid] = nil
+    redirect_to root_url
+  end
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
    root 'welcome#index'
 
    get "/auth/:provider/callback" => "sessions#create"  
+   match "/logout" => "sessions#destroy", :via => [:get], :as => :logout
    match "/tweet" => "account#tweet", :via => [:post], :as => :tweet
 
 

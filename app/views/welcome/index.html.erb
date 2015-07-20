@@ -3,6 +3,7 @@
 <h1>MR_BOTS</h1>
   <% if current_account %>  
     Current account: <%= current_account.name %>!  
+    <%= link_to "Log Out", "/logout" %>  
   <% else %>  
     <%= link_to "Sign in with Twitter", "/auth/twitter" %>  
   <% end %>  
