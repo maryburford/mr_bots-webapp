@@ -1,6 +1,5 @@
 class AccountController < ApplicationController
   def tweet 
-    puts("hi")
     if current_account
       message = params['message']
       if message.length > 0
@@ -9,6 +8,12 @@ class AccountController < ApplicationController
       else
 	redirect_to root_url
       end
+    end
+  end
+
+  def campaigns
+    if !current_account
+      redirect_to root_url
     end
   end
 end
