@@ -4,6 +4,8 @@ Rails.application.routes.draw do
    get "/auth/:provider/callback" => "sessions#create"  
    match "/logout" => "sessions#destroy", :via => [:get], :as => :logout
    match "/tweet" => "account#tweet", :via => [:post], :as => :tweet
+   get "/campaign/account/" => "campaign#account"
+   get "/campaign/create/" => "campaign#create"
 
 
   # Example of regular route:

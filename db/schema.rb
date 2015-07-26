@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719221549) do
+ActiveRecord::Schema.define(version: 20150726195556) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "provider"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20150719221549) do
     t.string   "name"
     t.string   "token"
     t.string   "secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.integer  "account_id"
+    t.string   "target"
+    t.integer  "max_favs"
+    t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
