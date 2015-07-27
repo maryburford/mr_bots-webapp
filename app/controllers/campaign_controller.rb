@@ -16,7 +16,7 @@ class CampaignController < ApplicationController
           account_id = current_user.account_id
           engagement_type = params["engagement_type"]
           engagements_per_day = params["engagements_per_day"]
-          engagements_per_prey = params["engagements_per_day"]
+          engagements_per_prey = params["engagements_per_prey"]
 
           if !validation_error 
 	    Campaign.create_campaign(target, account_id, engagement_type, engagements_per_day, engagements_per_prey)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727000954) do
+ActiveRecord::Schema.define(version: 20150727122548) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "provider"
@@ -26,10 +26,12 @@ ActiveRecord::Schema.define(version: 20150727000954) do
   create_table "campaigns", force: :cascade do |t|
     t.integer  "account_id"
     t.string   "target"
-    t.integer  "max_favs"
+    t.integer  "engagements_per_prey"
     t.boolean  "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "engagements_per_day"
+    t.string   "engagement_type"
   end
 
   create_table "engagements", force: :cascade do |t|
