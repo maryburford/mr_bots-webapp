@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726195556) do
+ActiveRecord::Schema.define(version: 20150727000954) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "provider"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20150726195556) do
     t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "engagements", force: :cascade do |t|
+    t.integer  "campaign_id"
+    t.integer  "prey_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
