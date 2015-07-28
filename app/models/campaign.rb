@@ -5,7 +5,7 @@ class Campaign < ActiveRecord::Base
       campaign.account_id = account_id
       campaign.engagement_type = engagement_type
       campaign.engagements_per_day = engagements_per_day
-      campaign.engagements_per_prey = engagemnts_per_prey
+      campaign.engagements_per_prey = engagements_per_prey
     end
   end
 end
