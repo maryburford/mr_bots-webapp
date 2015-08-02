@@ -15,6 +15,7 @@ class AccountController < ApplicationController
     if !current_account
       redirect_to root_url
     end
-    @campaigns = Campaign.all
+    puts(current_account.uid)
+    @campaigns = Campaign.where(account_id: current_account.id).order("created_at DESC")
   end
 end
