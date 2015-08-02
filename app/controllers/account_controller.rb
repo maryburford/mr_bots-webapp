@@ -15,5 +15,6 @@ class AccountController < ApplicationController
     if !current_account
       redirect_to root_url
     end
+    @campaigns = Campaign.all
   end
 end

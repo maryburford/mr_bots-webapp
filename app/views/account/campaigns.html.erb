@@ -4,7 +4,36 @@
     <br>
     <a href="/campaign/create_form" class="btn btn-twitter btn-lg">Create Twitter Campaign</a>
     <br>
-    <p>TODO: show campaigns here, most recent/active first</p>
+    <br>
+    <% @campaigns.each do |campaign| %>
+      <div class="panel panel-default">
+	<div class="panel-heading">
+	  <h3 class="panel-title">Target: <strong> <%= campaign.target %> </strong></h3>
+	</div>
+	<div class="panel-body">
+	    <div class="form-group" >
+	      <label for="active">Active</label>
+              <p> <%= campaign.active %></p>
+	    </div>
+	    <div class="form-group">
+	      <label for="engagement-level">Campaign Start Date</label>
+              <p> <%= campaign.created_at %></p>
+	    </div>
+	    <div class="form-group">
+	      <label for="engagement-type">Engagement Type</label>
+              <p> <%= campaign.engagement_type %></p>
+	    </div>
+	    <div class="form-group">
+	      <label for="engagement-level">Engagements Per Day</label>
+              <p> <%= campaign.engagements_per_day %></p>
+	    </div>
+	    <div class="form-group">
+	      <label for="engagement-level">Engagments Per Prey</label>
+              <p> <%= campaign.engagements_per_prey %></p>
+	    </div>
+	</div>
+      </div>
+    <% end %>
     <br>
   </div>
 </div>
