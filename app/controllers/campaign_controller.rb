@@ -10,17 +10,24 @@ class CampaignController < ApplicationController
 	redirect_to root_url
       end
 
-    #    validation_error = False
-    # TODO: validation
+
+    #TODO: validate target acct
     target = params["target"]
     account_id = params["account_id"]
     engagement_type = params["engagement_type"]
     engagements_per_day = params["engagements_per_day"]
     engagements_per_prey = params["engagements_per_prey"]
 
-    errors = Campaign.create_campaign(target, account_id, engagement_type, engagements_per_day, engagements_per_prey)
-    if errors.size > 0 then 
-      redirect_to campaign_create_form_url, flash: { error_messages: errors.full_messages}
+    @c = Campaign.new(target: target, 
+                     active: true, 
+		     account_id: account_id, 
+                     engagement_type: engagement_type,
+                     engagements_per_day: engagements_per_day,
+                     engagements_per_prey: engagements_per_prey)
+
+    @c.save
+    if !@c.save then 
+      redirect_to campaign_create_form_url, flash: { error_messages: @c.errors.full_messages, c: @c}
     else 
       redirect_to account_campaigns_url
     end
