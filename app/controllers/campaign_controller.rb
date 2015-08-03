@@ -19,8 +19,8 @@ class CampaignController < ApplicationController
     engagements_per_prey = params["engagements_per_prey"]
 
     errors = Campaign.create_campaign(target, account_id, engagement_type, engagements_per_day, engagements_per_prey)
-    if errors.length > 0 then 
-      redirect_to campaign_create_form_url, flash: { errors: errors }
+    if errors.size > 0 then 
+      redirect_to campaign_create_form_url, flash: { error_messages: errors.full_messages}
     else 
       redirect_to account_campaigns_url
     end

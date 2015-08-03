@@ -8,11 +8,15 @@
       </div>
       <div class="panel-body">
 	<form action="/campaign/create" method="post">
-            <% if flash[:errors] then %>
-            <p>Errors:</p>
-	    <% flash[:errors].each do |error| %>
-               <%= error %>
+            <% if flash[:error_messages] then %>
+            <div class="alert alert-danger" role="alert">
+              <p><strong><%= pluralize(flash[:error_messages].length, "Error") %></strong></p>
+              <ul>
+	    <% flash[:error_messages].each do |error| %>
+               <li><%= error %>.</li>
 	    <% end %>
+              </ul>
+            </div>
             <% end %>
 	  <div class="form-group" >
 	    <label for="target">Target</label>

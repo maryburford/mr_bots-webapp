@@ -12,6 +12,6 @@ class Campaign < ActiveRecord::Base
                      engagements_per_day: engagements_per_day,
                      engagements_per_prey: engagements_per_prey)
     c.save
-    return c.errors.messages
+    return c.errors
   end
 end
