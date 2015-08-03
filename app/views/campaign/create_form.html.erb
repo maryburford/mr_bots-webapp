@@ -8,6 +8,12 @@
       </div>
       <div class="panel-body">
 	<form action="/campaign/create" method="post">
+            <% if flash[:errors] then %>
+            <p>Errors:</p>
+	    <% flash[:errors].each do |error| %>
+               <%= error %>
+	    <% end %>
+            <% end %>
 	  <div class="form-group" >
 	    <label for="target">Target</label>
 	    <input type="text" class="form-control" id="target" name="target" placeholder="sbarrochica">
