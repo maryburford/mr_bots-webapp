@@ -25,10 +25,11 @@ class CampaignController < ApplicationController
                      engagements_per_day: engagements_per_day,
                      engagements_per_prey: engagements_per_prey)
 
-    @c.save
-    if !@c.save then 
+    if !@c.valid? then 
       redirect_to campaign_create_form_url, flash: { error_messages: @c.errors.full_messages, c: @c}
     else 
+      Campaign.where(account_id: account_id).update_all(active: false)
+      @c.save
       redirect_to account_campaigns_url
     end
   end
