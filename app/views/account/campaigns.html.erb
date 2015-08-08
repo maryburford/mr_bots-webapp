@@ -2,19 +2,21 @@
   <div class="col-xs-12">
     <h2>Your Campaigns</h2>
     <br>
-    <a href="/campaign/create_form" class="btn btn-twitter btn-lg">Create Twitter Campaign</a>
+    <% if @campaigns.length == 0 then %>
+    <h4>Welcome to MR_BOTS!  To get started, create a new campaign.  A campaign is an automated social engagement strategy that will gradually gain you friends and followers.</h4>
+    <% else %>
+    <h4>Welcome back!  You can view your campaigns here.  You can only have one active campaign at a time.  Either create a new campaign, or reactivate an old one.  Log out to manage campaigns for another account.</h4>
+    <% end %>
+    <br>
+    <a href="/campaign/create_form" class="btn btn-twitter btn-lg"><i class="fa fa-bolt"></i> Create Twitter Campaign</a>
     <br>
     <br>
     <% @campaigns.each do |campaign| %>
-      <div class="panel panel-default">
+      <div class="panel <%= campaign.active ? "panel-primary" : "panel-default" %>">
 	<div class="panel-heading">
 	  <h3 class="panel-title">Target: <strong> <%= campaign.target %> </strong></h3>
 	</div>
 	<div class="panel-body">
-	    <div class="form-group" >
-	      <label for="active">Active</label>
-              <p> <%= campaign.active %></p>
-	    </div>
 	    <div class="form-group">
 	      <label for="engagement-level">Campaign Start Date</label>
               <p> <%= campaign.created_at %></p>
@@ -35,6 +37,14 @@
 	      <label for="engagement-level" data-container="body" data-toggle="tooltip" data-placement="right" title="MR&trade; Score is the percentage of people you've engaged who are currently following you.">MR&trade; Score <span class="badge"><i class="fa fa-question" ></i></span></label>
               <p>73.2%</p>
 	    </div>
+	    <hr>
+	    <% if campaign.active then %>
+	    <button class="btn btn-danger">Deactivate</button>
+	    <button class="btn btn-default">Edit</button>
+	    <% else %>
+	    <button class="btn btn-primary">Activate</button>
+	    <button class="btn btn-default">Edit</button>
+	    <% end %>
 
 	</div>
       </div>
