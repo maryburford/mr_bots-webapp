@@ -19,24 +19,41 @@
             </div>
             <% end %>
 	  <div class="form-group" >
-	    <label for="target">Target</label>
+	    <label for="engagements_per_prey" data-container="body"
+	    data-toggle="tooltip" data-placement="right" title="Choose a target
+	    account with followers that you think would likely follow you.
+	    MR_BOTS will choose your 'prey' from this account's followers, and
+	    then automatically engage them.">
+	    Target <span class="badge"><i class="fa fa-question" ></i></span></label>
 	    <input type="text" class="form-control" id="target" name="target" value="<%= flash[:c] ? flash[:c]["target"] : '' %>" placeholder="sbarrochica">
 	  </div>
 	  <div class="form-group">
-	    <label for="engagement-type">Engagement Type</label>
+	    <label for="engagements_per_prey" data-container="body"
+	    data-toggle="tooltip" data-placement="right" title="Right now, the
+	    only way MR_BOTS can engage with prey is via faving their content.  
+	    In the future, we plan to build systems that engage in more engaging
+	    ways.">
+	    Engagement Type <span class="badge"><i class="fa fa-question" ></i></span></label>
             <select class="form-control" id="engagement-type" name="engagement_type">
                <option>Favorite</option>
             </select>
 	  </div>
 	  <div class="form-group">
-	    <label for="engagement-level">Maximum Engagements Per Day</label>
+	    <label for="engagements_per_day" data-container="body"
+	    data-toggle="tooltip" data-placement="right" title="Set this low if you don't want to seem
+	    thirsty or spammy, or high if you want to be aggressive.">Max
+	    Engagements Per Day <span class="badge"><i class="fa fa-question" ></i></span></label>
 	    <p id="engagements_per_day_preview"></p>
 	    <div id="engagements_per_day_slider"></div>
 	    <input type="hidden" class="form-control" name="engagements_per_day"
 	    value="<%= flash[:c] ? flash[:c]["engagements_per_day"] : 20 %>">
 	  </div>
 	  <div class="form-group">
-	    <label for="engagement-level">Engagments Per Prey</label>
+	    <label for="engagements_per_prey" data-container="body"
+	    data-toggle="tooltip" data-placement="right" title="Set
+	    this low to reach a large number of potential followers quickly, or
+	    high if you want to really convince people that you care about them.">
+	    Engagements Per Prey <span class="badge"><i class="fa fa-question" ></i></span></label>
 	    <p id="engagements_per_prey_preview"></p>
 	    <div id="engagements_per_prey_slider"></div>
 	    <input type="hidden" class="form-control" name="engagements_per_prey"
