@@ -7,6 +7,7 @@ Rails.application.routes.draw do
    get "/account/campaigns" => "account#campaigns"
    get "/campaign/create_form" => "campaign#create_form"
    post "/campaign/create" => "campaign#create"
+   post "/account/campaigns" => "campaign#update"
 
 
 

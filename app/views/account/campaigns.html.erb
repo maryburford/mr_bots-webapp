@@ -39,11 +39,12 @@
 	    </div>
 	    <hr>
 	    <% if campaign.active then %>
-	    <button class="btn btn-danger">Deactivate</button>
-	    <button class="btn btn-default">Edit</button>
+	    <%= button_to 'Edit',  {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-default'}%>
+	    <%= button_to 'Deactivate', {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-default'}%>
 	    <% else %>
-	    <button class="btn btn-primary">Activate</button>
-	    <button class="btn btn-default">Edit</button>
+
+	     <%= button_to 'Activate', {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "true", :method=>:patch}, {class: 'btn btn-primary'}  %>
+
 	    <% end %>
 
 	</div>
