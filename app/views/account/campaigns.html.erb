@@ -3,9 +3,9 @@
     <h2>Your Campaigns</h2>
     <br>
     <% if @campaigns.length == 0 then %>
-    <h4>Welcome to MR_BOTS!  To get started, create a new campaign.  A campaign is an automated social engagement strategy that will gradually gain you friends and followers.</h4>
+    <h4>Welcome to MR_BOTS!  To get started, <strong>create a new campaign</strong>.  A campaign is an automated social engagement strategy that will gradually gain you friends and followers.</h4>
     <% else %>
-    <h4>Welcome back!  You can view your campaigns here.  You can only have one active campaign at a time.  Either create a new campaign, or reactivate an old one.  Log out to manage campaigns for another account.</h4>
+    <h4>Welcome back!  You can view your campaigns here.  You can only have one active campaign at a time.  Either <strong>create a new campaign</strong>, or <strong>reactivate an old one</strong>.  Log out to manage campaigns for another account.</h4>
     <% end %>
     <br>
     <a href="/campaign/create_form" class="btn btn-twitter btn-lg"><i class="fa fa-bolt"></i> Create Twitter Campaign</a>
@@ -39,11 +39,12 @@
 	    </div>
 	    <hr>
 	    <% if campaign.active then %>
+	    <%= button_to 'Deactivate', {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-danger'}%>
 	    <%= button_to 'Edit',  {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-default'}%>
-	    <%= button_to 'Deactivate', {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-default'}%>
 	    <% else %>
 
 	     <%= button_to 'Activate', {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "true", :method=>:patch}, {class: 'btn btn-primary'}  %>
+	    <%= button_to 'Edit',  {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-default'}%>
 
 	    <% end %>
 
