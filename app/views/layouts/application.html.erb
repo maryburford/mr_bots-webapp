@@ -17,10 +17,9 @@
     <div class="col-xs-2">
       <% if current_account %>  
         <br>
-	<%= current_account.name %>!  
-        <br>
 	<%= link_to "Log Out", "/logout" %>  
       <% else %>  
+        <br>
 	<p style="line-height: 39px; margin-top: 20px;"><em>Alpha <span class="hidden-xs">v.0.0.1</span></em></p>
       <% end %>         
      </div>
