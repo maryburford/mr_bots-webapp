@@ -9,6 +9,7 @@ body {
 
 }
 
+/* Social Buttons */
 
 .btn-twitter {
   background-color: #55acee;
@@ -69,4 +70,16 @@ body {
   background-color: darken(#0077b5, 10%);
   border-color: darken(#0077b5, 10%);
   color: white !important;
+}
+
+
+/* Slider Styles */
+.form-group .ui-slider {
+  background-color: #eee;
+}
+
+.form-group .ui-slider .ui-slider-handle {
+  background-color: #666;
+  border-radius: 2px;
+  width: 1.8em;
 }

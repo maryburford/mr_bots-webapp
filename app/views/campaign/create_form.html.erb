@@ -16,12 +16,11 @@
                <li><%= error %>.</li>
 	    <% end %>
               </ul>
-            <%= flash[:c] %>
             </div>
             <% end %>
 	  <div class="form-group" >
 	    <label for="target">Target</label>
-	    <input type="text" class="form-control" id="target" name="target" placeholder="sbarrochica">
+	    <input type="text" class="form-control" id="target" name="target" value="<%= flash[:c] ? flash[:c]["target"] : '' %>" placeholder="sbarrochica">
 	  </div>
 	  <div class="form-group">
 	    <label for="engagement-type">Engagement Type</label>
@@ -30,16 +29,24 @@
             </select>
 	  </div>
 	  <div class="form-group">
-	    <label for="engagement-level">Engagements Per Day</label>
-	    <input type="text" class="form-control" name="engagements_per_day" placeholder="30">
+	    <label for="engagement-level">Maximum Engagements Per Day</label>
+	    <p id="engagements_per_day_preview"></p>
+	    <div id="engagements_per_day_slider"></div>
+	    <input type="hidden" class="form-control" name="engagements_per_day"
+	    value="<%= flash[:c] ? flash[:c]["engagements_per_day"] : 20 %>">
 	  </div>
 	  <div class="form-group">
 	    <label for="engagement-level">Engagments Per Prey</label>
-	    <input type="text" class="form-control" name="engagements_per_prey" placeholder="1">
+	    <p id="engagements_per_prey_preview"></p>
+	    <div id="engagements_per_prey_slider"></div>
+	    <input type="hidden" class="form-control" name="engagements_per_prey"
+	    value="<%= flash[:c] ? flash[:c]["engagements_per_prey"] : 2 %>">
 	  </div>
 	  <div>
 	  <input type="hidden" name="account_id" value= "<%= Account.find(current_account).id %>">
 	  </div>
+	  <p id="campaign-summary"></p>
+	  <br>
 	  <button type="submit" class="btn btn-primary">Start Campaign</button>
 	  <a href="../account/campaigns"><button href="account/campaigns" class="btn btn-default">Cancel</button></a>
 	</form>
