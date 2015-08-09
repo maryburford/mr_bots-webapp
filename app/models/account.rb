@@ -8,6 +8,20 @@ class Account < ActiveRecord::Base
       account.secret = auth["credentials"]["secret"]
     end
   end
+
+  def self.user_exists?(username)
+      client = Twitter::REST::Client.new do |config|
+	config.consumer_key = "tdGB5bGdjqlM3hRVIA3VYY0n9"
+	config.consumer_secret = "vaAejiob0uko8YPu81tTxB585cvA4G1WmKmwGLGESpMOw5MXxr"
+      end
+      
+      begin 
+        client.user(username)
+	return true
+      rescue Twitter::Error::NotFound
+	return false
+      end
+  end
   
   def tweet(message)
       client = Twitter::REST::Client.new do |config|
@@ -17,9 +31,8 @@ class Account < ActiveRecord::Base
 	config.access_token_secret = self.secret
       end
 
-      puts(self.token);
-      puts(self.secret);
       client.update(message)
   end
+
 
 end

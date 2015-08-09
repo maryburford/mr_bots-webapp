@@ -12,6 +12,8 @@ $(document).ready(function(){
       slide: function(event, ui) {
 	  $("input[name=engagements_per_day]").val(ui.value);
 	  $("#engagements_per_day_preview").text(ui.value);
+	  if(ui.value < 10)
+	  $("#engagements_per_prey_slider").slider("option","max", ui.value);
 	  updateSummary();
       }
   });
@@ -43,5 +45,4 @@ $(document).ready(function(){
     summary += "for a total of <b>" + totalPrey*perPrey + "</b> engagements.";
     $("#campaign-summary").html(summary);
   }
-
 });
