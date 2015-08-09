@@ -20,7 +20,7 @@ class CampaignController < ApplicationController
 
     @c = Campaign.new(target: target, 
                      active: true, 
-		     account_id: account_id, 
+		                 account_id: account_id, 
                      engagement_type: engagement_type,
                      engagements_per_day: engagements_per_day,
                      engagements_per_prey: engagements_per_prey)
@@ -33,4 +33,12 @@ class CampaignController < ApplicationController
       redirect_to account_campaigns_url
     end
   end
+
+  def update
+    c = Campaign.find(params[:campaign_id])
+    c.update(active: params[:active])
+    redirect_to root_url
+  end
+
 end
+
