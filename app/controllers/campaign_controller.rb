@@ -36,8 +36,14 @@ class CampaignController < ApplicationController
 
   def update
     c = Campaign.find(params[:campaign_id])
+    if c.update(active: params[:active]) == 'true'
+    Campaign.where(account_id: account_id).update_all(active: false)
     c.update(active: params[:active])
     redirect_to root_url
+    else
+    c.update(active: params[:active])
+    redirect_to root_url
+  end
   end
 
 end
