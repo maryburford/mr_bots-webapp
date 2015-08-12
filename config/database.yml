@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: development
   pool: 5
-  username: mr_bots-webapp 
+  username: <%= ENV['MR_PG_USER'] %>
   password: <%= ENV['MR_PG_PWD'] %>
   timeout: 5000
   host: localhost
@@ -50,7 +50,7 @@ test:
   encoding: unicode
   database: test
   pool: 5
-  username: mr_bots-webapp 
+  username: <%= ENV['MR_PG_USER'] %>
   password: <%= ENV['MR_PG_PWD'] %>
   timeout: 5000
   host: localhost
@@ -60,7 +60,7 @@ production:
   encoding: unicode
   database: production
   pool: 5
-  username: mr_bots-webapp 
+  username: <%= ENV['MR_PG_USER'] %>
   password: <%= ENV['MR_PG_PWD'] %>
   timeout: 5000
   host: localhost

@@ -21,3 +21,6 @@
 *.swn
 *env.sh
 *database.yml
+
+.rbenv-vars
+/public/assets/*
