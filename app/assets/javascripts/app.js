@@ -75,4 +75,6 @@ $(document).ready(function(){
     summary += "for a total of <b>" + totalPrey*perPrey + "</b> engagements.";
     $("#campaign-summary").html(summary);
   }
+
+  updateSummary();
 });
