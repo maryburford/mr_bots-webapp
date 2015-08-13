@@ -1,10 +1,19 @@
+$desaturate-amt: 20%;
+
 body {
-  //background-color: #fafafa !important;
+  background-color: #fafafa !important;
   background: url('background.png') repeat;
+
+}
+
+.white-padded {
+  background-color: white;
+  padding: 4px 6px;
+  border-radius: 2px;
 }
 
 .mr_bots-brand {
- color: #333333 !important;
+  color: #333333 !important;
   text-decoration: none !important;
 
 }
@@ -14,67 +23,77 @@ body {
   margin-right: 10px;
 }
 
+.img-circle {
+  border: 3px solid #666;
+  margin: 0px 10px;
+  height: 22%;
+  width: 22%;
+  background-color: rgba(255, 255, 255, .5);
+}
+
+
 /* Social Buttons */
 
+
 .btn-twitter {
-  background-color: #605C5D;
-  border-color: #605C5D;
+  background-color: desaturate(#55acee, $desaturate-amt);
+  border-color: #55acee;
   color: white !important;
 }
 
 .btn-twitter:hover {
-  background-color: darken(#605C5D, 10%);
-  border-color: darken(#605C5D, 10%);
+  background-color: desaturate(darken(#55acee, 10%), $desaturate-amt);
+  border-color: darken(#55acee, 10%);
   color: white !important;
 }
 
 .btn-instagram {
-  background-color: #847F80;
-  border-color: #847F80;
+  background-color: desaturate(#3f729b, $desaturate-amt);
+  border-color: #3f729b;
   color: white;
 }
 
 .btn-instagram:hover {
-  background-color: darken(#847F80, 10%);
-  border-color: darken(#847F80, 10%);
+  background-color: darken(#3f729b, 10%);
+  border-color: darken(#3f729b, 10%);
   color: white !important;
 }
 
 .btn-facebook {
-  background-color: #B2ADAE;
-  border-color: #B2ADAE;
+  background-color: desaturate(#3b5998, $desaturate-amt);
+  border-color: #3b5998;
   color: white;
 }
 
 .btn-facebook:hover {
-  background-color: darken(#B2ADAE, 10%);
-  border-color: darken(#B2ADAE, 10%);
+  background-color: desaturate(darken(#3b5998, 10%), $desaturate-amt);
+  border-color: desaturate(darken(#3b5998, 10%), $desaturate-amt);
   color: white !important;
 }
 
 
 .btn-pinterest {
-  background-color: #D3CFD0;
-  border-color: #D3CFD0;
-  color: grey;
+  background-color: desaturate(#cc2127, $desaturate-amt);
+  border-color: desaturate(#cc2127, $desaturate-amt);
+  color: white;
 }
 
 .btn-pinterest:hover {
-  background-color: darken(#D3CFD0, 10%);
-  border-color: darken(#D3CFD0, 10%);
-  color: grey !important;
+  background-color: desaturate(darken(#cc2127, 10%), $desaturate-amt);
+  border-color: desaturate(darken(#cc2127, 10%), $desaturate-amt);
+  color: white !important;
 }
 
 .btn-linkedin {
-  background-color: #E6E3E3;
-  border-color: #E6E3E3;
-  color: grey;
+  background-color: desaturate(#0077b5, $desaturate-amt);
+  border-color: desaturate(#0077b5, $desaturate-amt);
+  color: white !important;
 }
 
 .btn-linkedin:hover {
-  background-color: darken(#E6E3E3, 10%);
-  border-color: darken(#E6E3E3, 10%);
-  color: grey !important;
+  background-color: desaturate(darken(#0077b5, 10%), $desaturate-amt);
+  border-color: desaturate(darken(#0077b5, 10%), $desaturate-amt);
+  color: white !important;
 }
 
 
@@ -90,7 +109,5 @@ body {
 }
 
 .tooltip-inner {
-
   font-size: 14px !important;
-
 }

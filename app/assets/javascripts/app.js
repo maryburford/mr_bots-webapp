@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".btn").click(function(){
+  $(".btn:enabled").click(function(){
     $(this).find("i").addClass("fa-spin");
   });
 
@@ -32,6 +32,36 @@ $(document).ready(function(){
   $("#engagements_per_prey_preview").text($("input[name=engagements_per_prey]").val());
 
   $("input[name=target]").change(updateSummary);
+
+
+  // ptsteadman, 2015
+  $("#cat1").animate({
+    borderColor: "#ff9900",
+    }, 1000, function(){
+    setTimeout(function(){
+    $("#cat2").animate({
+      borderColor: "#ff9900",
+      }, 1000, function(){
+      setTimeout(function(){
+      $("#cat3, #cat5").animate({
+	borderColor: "#ff9900",
+	}, 750, function(){
+	setTimeout(function(){
+	$("#cat6, #cat4").animate({
+	  borderColor: "#ff9900",
+	  }, 500, function(){
+	  setTimeout(function(){
+	  $("#cat7").animate({
+	    borderColor: "#ff9900",
+	    }, 1000, function(){ console.log("done") });
+	  }, 250);
+	  });
+	}, 250);
+	});
+      }, 500);
+      });
+     }, 500);
+    });
 
   function updateSummary(){
     var target = $("input[name=target]").val() ? $("input[name=target]").val()

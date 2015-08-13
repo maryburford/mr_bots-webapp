@@ -12,15 +12,16 @@
   <br>
   <div class="row">
     <div class="col-xs-10">
-      <a href="/" class="mr_bots-brand"><h1 ><em><strong>MR_BOTS</strong></em></h1></a>
+      <a href="/" class="mr_bots-brand"><h1
+      ><em><strong class="white-padded">MR_BOTS</strong></em></h1></a>
     </div>
     <div class="col-xs-2">
       <% if current_account %>  
         <br>
-	<%= link_to "Log Out", "/logout" %>  
+	<span class="white-padded"><%= link_to "Log Out", "/logout" %>  </span>
       <% else %>  
         <br>
-	<p style="line-height: 39px; margin-top: 20px;"><em>Alpha <span class="hidden-xs">v.0.0.1</span></em></p>
+	<p style="line-height: 39px;"><em class="white-padded">Alpha</em></p>
       <% end %>         
      </div>
 </div>
@@ -28,7 +29,7 @@
   <div class="row">
     <div class="col-xs-12">
        <hr>
-       <p>&copy; 2015, Select Star LLC</p>
+       <p><span class="white-padded">&copy; 2015, Select Star LLC</span></p>
        <br>
     </div>
 </div>
