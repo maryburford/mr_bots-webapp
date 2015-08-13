@@ -1,6 +1,6 @@
 body {
-  background-color: #fafafa !important;
-
+  //background-color: #fafafa !important;
+  background: url('background.png') repeat;
 }
 
 .mr_bots-brand {
@@ -17,64 +17,64 @@ body {
 /* Social Buttons */
 
 .btn-twitter {
-  background-color: #55acee;
-  border-color: #55acee;
+  background-color: #605C5D;
+  border-color: #605C5D;
   color: white !important;
 }
 
 .btn-twitter:hover {
-  background-color: darken(#55acee, 10%);
-  border-color: darken(#55acee, 10%);
+  background-color: darken(#605C5D, 10%);
+  border-color: darken(#605C5D, 10%);
   color: white !important;
 }
 
 .btn-instagram {
-  background-color: #3f729b;
-  border-color: #3f729b;
+  background-color: #847F80;
+  border-color: #847F80;
   color: white;
 }
 
 .btn-instagram:hover {
-  background-color: darken(#3f729b, 10%);
-  border-color: darken(#3f729b, 10%);
+  background-color: darken(#847F80, 10%);
+  border-color: darken(#847F80, 10%);
   color: white !important;
 }
 
 .btn-facebook {
-  background-color: #3b5998;
-  border-color: #3b5998;
+  background-color: #B2ADAE;
+  border-color: #B2ADAE;
   color: white;
 }
 
 .btn-facebook:hover {
-  background-color: darken(#3b5998, 10%);
-  border-color: darken(#3b5998, 10%);
+  background-color: darken(#B2ADAE, 10%);
+  border-color: darken(#B2ADAE, 10%);
   color: white !important;
 }
 
 
 .btn-pinterest {
-  background-color: #cc2127;
-  border-color: #cc2127;
-  color: white;
+  background-color: #D3CFD0;
+  border-color: #D3CFD0;
+  color: grey;
 }
 
 .btn-pinterest:hover {
-  background-color: darken(#cc2127, 10%);
-  border-color: darken(#cc2127, 10%);
-  color: white !important;
+  background-color: darken(#D3CFD0, 10%);
+  border-color: darken(#D3CFD0, 10%);
+  color: grey !important;
 }
 
 .btn-linkedin {
-  background-color: #0077b5;
-  border-color: #0077b5;
-  color: white;
+  background-color: #E6E3E3;
+  border-color: #E6E3E3;
+  color: grey;
 }
 
 .btn-linkedin:hover {
-  background-color: darken(#0077b5, 10%);
-  border-color: darken(#0077b5, 10%);
-  color: white !important;
+  background-color: darken(#E6E3E3, 10%);
+  border-color: darken(#E6E3E3, 10%);
+  color: grey !important;
 }
 
 
