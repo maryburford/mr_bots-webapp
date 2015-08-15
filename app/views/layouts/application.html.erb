@@ -12,17 +12,17 @@
 <div class="container">
   <br>
   <div class="row">
-    <div class="col-xs-10">
+    <div class="col-xs-8">
       <a href="/" class="mr_bots-brand"><h1
       ><em><strong class="white-padded">MR_BOTS</strong></em></h1></a>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-4">
       <% if current_account %>  
         <br>
-	<%= link_to "Log Out", "/logout", {"class" => "btn btn-danger"}%> 
+	<%= link_to "Log Out", "/logout", {"class" => "btn btn-danger pull-right"}%> 
       <% else %> 
         <br>
-	<p style="line-height: 39px;"><em class="white-padded">Alpha</em></p>
+	<p style="line-height: 31px;"><em class="white-padded pull-right">Alpha</em></p>
       <% end %>         
      </div>
 </div>
