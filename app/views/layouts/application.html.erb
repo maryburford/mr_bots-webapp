@@ -27,11 +27,14 @@
      </div>
 </div>
   <%= yield %>
-  <div class="row">
-    <div class="col-xs-12">
-       <hr>
-       <p><span class="white-padded">&copy; 2015, Select Star LLC</span></p>
-       <br>
+  <div class="row footer">
+    <div class="col-xs-8" >
+           <p><span class="center-aligned-text white-padded">&copy; 2015, Select Star LLC</span></p>
+</div>
+    <div class="col-xs-4" >
+
+       <img id="footercat" class="img-footer pull-right" src="<%= asset_path( 'welcome_cat_1.png' ) %>" />
+       </div>
     </div>
 </div>
 </div>
