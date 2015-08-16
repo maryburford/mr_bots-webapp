@@ -20,6 +20,8 @@ class Account < ActiveRecord::Base
 	return true
       rescue Twitter::Error::NotFound
 	return false
+      rescue Twitter::Error
+	return false
       end
   end
   

@@ -27,7 +27,7 @@ class CampaignController < ApplicationController
     if !@c.valid? then 
       redirect_to campaign_create_form_url, flash: { error_messages: @c.errors.full_messages, c: @c}
     else 
-      Campaign.where(account_id: account_id).update_all(active: false)
+      Campaign.where(account_id: current_account.id).update_all(active: false)
       @c.save
       redirect_to account_campaigns_url
     end
@@ -37,30 +37,18 @@ class CampaignController < ApplicationController
     if !current_account
       redirect_to root_url
     end
-    
-    if session[:account_id] != params[:account_id] then
-      redirect_to root_url
-    end 
 
+
+    Campaign.where(account_id: current_account.id).update_all(active: false)
     c = Campaign.find(params[:campaign_id])
-    if c.update(active: params[:active]) == 'true'
-      Campaign.where(account_id: account_id).update_all(active: false)
-      c.update(active: params[:active])
-      redirect_to root_url
-    else
-      c.update(active: params[:active])
-      redirect_to root_url
-    end
+    c.update(active: params[:active])
+    redirect_to root_url
   end
 
   def delete
     if !current_account
       redirect_to root_url
     end
-    
-    if session[:account_id] != params[:account_id] then
-      redirect_to root_url
-    end 
 
     Campaign.find(params[:campaign_id]).delete
     redirect_to root_url
