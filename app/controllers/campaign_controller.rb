@@ -10,6 +10,7 @@ class CampaignController < ApplicationController
 	redirect_to root_url
       end
 
+    #todo: make sure it is one of user's accounts
 
     target = params["target"]
     account_id = params["account_id"]
@@ -38,6 +39,7 @@ class CampaignController < ApplicationController
       redirect_to root_url
     end
 
+    #todo: make sure it is one of user's campaigns
 
     Campaign.where(account_id: current_account.id).update_all(active: false)
     c = Campaign.find(params[:campaign_id])
@@ -49,7 +51,8 @@ class CampaignController < ApplicationController
     if !current_account
       redirect_to root_url
     end
-
+    
+    #todo: make sure it is one of user's campaigns
     Campaign.find(params[:campaign_id]).delete
     redirect_to root_url
   end

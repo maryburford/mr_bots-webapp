@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row main-content">
   <div class="col-xs-12">
     <br>
     <div class="panel panel-default">
@@ -7,15 +7,14 @@
       </div>
       <div class="panel-body">
 	<% if @campaigns.length == 0 then %>
-	<h4>Welcome to MR_BOTS!  To get started, <strong>create a new campaign</strong>.  A campaign is an automated social engagement strategy that will gradually gain you friends and followers.</h4>
+	  <h4><strong>Create a new campaign</strong>.  A campaign is an automated social engagement strategy that will gradually <strong> gain you friends and followers</strong>.</h4>
 	<% else %>
-	<h4>Welcome back!  You can view your campaigns here.  You can only have one active campaign at a time.  Either <strong>create a new campaign</strong>, or <strong>reactivate an old one</strong>.  Log out to manage campaigns for another account.</h4>
+	<h4>At present, You can only have one active campaign at a time.  Either <strong>create a new campaign</strong>, or <strong>reactivate an old one</strong>.  Log out to manage campaigns for another account.</h4>
 	<% end %>
 	<br>
 	<a href="/campaign/create_form" class="btn btn-twitter btn-lg"><i class="fa fa-bolt"></i> Create Twitter Campaign</a>
       </div>
     </div>
-    <br>
     <br>
     <% @campaigns.each do |campaign| %>
       <div class="panel <%= campaign.active ? "panel-primary" : "panel-default" %>">
