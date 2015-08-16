@@ -24,3 +24,5 @@
 
 .rbenv-vars
 /public/assets/*
+
+.DS_STORE

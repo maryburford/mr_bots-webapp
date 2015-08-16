@@ -8,6 +8,7 @@ Rails.application.routes.draw do
    get "/campaign/create_form" => "campaign#create_form"
    post "/campaign/create" => "campaign#create"
    post "/account/campaigns" => "campaign#update"
+   delete "/account/campaigns" => "campaign#delete"
 
 
 

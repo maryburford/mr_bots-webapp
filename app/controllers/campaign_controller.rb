@@ -11,7 +11,6 @@ class CampaignController < ApplicationController
       end
 
 
-    #TODO: validate target acct
     target = params["target"]
     account_id = params["account_id"]
     engagement_type = params["engagement_type"]
@@ -35,15 +34,36 @@ class CampaignController < ApplicationController
   end
 
   def update
+    if !current_account
+      redirect_to root_url
+    end
+    
+    if session[:account_id] != params[:account_id] then
+      redirect_to root_url
+    end 
+
     c = Campaign.find(params[:campaign_id])
     if c.update(active: params[:active]) == 'true'
-    Campaign.where(account_id: account_id).update_all(active: false)
-    c.update(active: params[:active])
-    redirect_to root_url
+      Campaign.where(account_id: account_id).update_all(active: false)
+      c.update(active: params[:active])
+      redirect_to root_url
     else
-    c.update(active: params[:active])
-    redirect_to root_url
+      c.update(active: params[:active])
+      redirect_to root_url
+    end
   end
+
+  def delete
+    if !current_account
+      redirect_to root_url
+    end
+    
+    if session[:account_id] != params[:account_id] then
+      redirect_to root_url
+    end 
+
+    Campaign.find(params[:campaign_id]).delete
+    redirect_to root_url
   end
 
 end

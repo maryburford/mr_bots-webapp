@@ -46,12 +46,11 @@
 	    <hr>
 	    <% if campaign.active then %>
 	    <%= button_to 'Deactivate', {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-danger'}%>
-	    <%= button_to 'Edit',  {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-default'}%>
+	    <%= button_to 'Delete',  {:controller => "campaign", :action =>"delete", :campaign_id => campaign.id, :account_id=> session[:account_id]}, { method: "delete", class: 'btn btn-default'}%>
 	    <% else %>
 
 	     <%= button_to 'Activate', {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "true", :method=>:patch}, {class: 'btn btn-primary'}  %>
-	    <%= button_to 'Edit',  {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-default'}%>
-
+	     <%= button_to 'Delete',  {:controller => "campaign", :action =>"delete", :campaign_id => campaign.id, :account_id=> session[:account_id]}, {method: "delete", class: "btn btn-default"}%>
 	    <% end %>
     <% end %>
     <br>
