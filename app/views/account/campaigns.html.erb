@@ -53,9 +53,6 @@
 	    <%= button_to 'Edit',  {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :account_id=> session[:account_id], :active => "false", :method=>:patch}, {class: 'btn btn-default'}%>
 
 	    <% end %>
-
-	</div>
-      </div>
     <% end %>
     <br>
   </div>
