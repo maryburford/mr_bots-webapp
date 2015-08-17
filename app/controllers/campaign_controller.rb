@@ -17,13 +17,16 @@ class CampaignController < ApplicationController
     engagement_type = params["engagement_type"]
     engagements_per_day = params["engagements_per_day"]
     engagements_per_prey = params["engagements_per_prey"]
+    mr_score = params["mr_score"]
+
 
     @c = Campaign.new(target: target, 
                      active: true, 
 		                 account_id: account_id, 
                      engagement_type: engagement_type,
                      engagements_per_day: engagements_per_day,
-                     engagements_per_prey: engagements_per_prey)
+                     engagements_per_prey: engagements_per_prey,
+                     mr_score: mr_score)
 
     if !@c.valid? then 
       redirect_to campaign_create_form_url, flash: { error_messages: @c.errors.full_messages, c: @c}
