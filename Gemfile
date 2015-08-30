@@ -46,5 +46,6 @@ end
 # gems added by us
 gem "omniauth"
 gem "omniauth-twitter"
-gem 'twitter'
-gem 'jquery-turbolinks'
+gem "omniauth-instagram"
+gem "twitter"
+gem "jquery-turbolinks"
