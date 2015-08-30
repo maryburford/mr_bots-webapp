@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816234347) do
+ActiveRecord::Schema.define(version: 20150820123624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150816234347) do
     t.integer  "prey_id",     limit: 8
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.string   "user_name"
+    t.integer  "post_id",     limit: 8
   end
 
   create_table "followers", force: :cascade do |t|
