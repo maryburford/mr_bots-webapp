@@ -1,9 +1,13 @@
 class Account < ActiveRecord::Base
   def self.create_with_omniauth(auth)  
+    puts(auth)
     create! do |account|  
       account.provider = auth["provider"]  
       account.uid = auth["uid"]  
       account.name = auth["info"]["name"]
+      account.image = auth["info"]["image"]
+      account.email = auth["info"]["email"]
+      account.nickname = auth["info"]["nickname"]
       account.token = auth["credentials"]["token"]
       account.secret = auth["credentials"]["secret"]
     end

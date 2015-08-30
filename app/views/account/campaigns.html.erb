@@ -12,7 +12,12 @@
 	<h4>At present, You can only have one active campaign at a time.  Either <strong>create a new campaign</strong>, or <strong>reactivate an old one</strong>.  Log out to manage campaigns for another account.</h4>
 	<% end %>
 	<br>
+	<% if current_account.provider == 'instagram' %>
+	<a href="/campaign/create_form" class="btn btn-instagram btn-lg"><i class="fa fa-bolt"></i> Create Instagram Campaign</a>
+	<% end %>
+	<% if current_account.provider == 'twitter' %>
 	<a href="/campaign/create_form" class="btn btn-twitter btn-lg"><i class="fa fa-bolt"></i> Create Twitter Campaign</a>
+	<% end %>
       </div>
     </div>
     <br>
