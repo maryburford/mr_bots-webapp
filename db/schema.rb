@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150830213241) do
     t.integer  "engagements_per_day"
     t.string   "engagement_type"
     t.decimal  "mr_score"
+    t.integer  "followers_acquired"
   end
 
   create_table "engagements", force: :cascade do |t|
