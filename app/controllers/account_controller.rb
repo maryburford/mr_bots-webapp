@@ -16,5 +16,10 @@ class AccountController < ApplicationController
       redirect_to root_url
     end
     @campaigns = Campaign.where(account_id: current_account.id).order("updated_at DESC")
+    @new_followers = Hash.new(Array.new)
+    @campaigns.each do |camp|
+      @new_followers[camp.id] = Engagement.where("campaign_id = ? and isfollowing", camp.id).select(:user_name).distinct
+    end
+
   end
 end
