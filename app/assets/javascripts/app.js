@@ -34,34 +34,49 @@ $(document).ready(function(){
   $("input[name=target]").change(updateSummary);
 
 
+  function animateCats(){
   // ptsteadman, 2015
-  $("#cat1").animate({
-    borderColor: "#ff9900",
-    }, 1000, function(){
-    setTimeout(function(){
-    $("#cat2").animate({
+    console.log("animate");
+
+    $("#cat1").animate({
       borderColor: "#ff9900",
-      }, 1000, function(){
+    }, 1000, function(){
       setTimeout(function(){
-      $("#cat3, #cat5").animate({
-	borderColor: "#ff9900",
-	}, 750, function(){
-	setTimeout(function(){
-	$("#cat6, #cat4").animate({
+	$("#cat2").animate({
 	  borderColor: "#ff9900",
-	  }, 500, function(){
+	}, 1000, function(){
 	  setTimeout(function(){
-	  $("#cat7").animate({
-	    borderColor: "#ff9900",
-	    }, 1000, function(){ console.log("done") });
+	    $("#cat3, #cat5").animate({
+	      borderColor: "#ff9900",
+	    }, 750);
+	    setTimeout(function(){
+	      $("#cat6, #cat4").animate({
+		borderColor: "#ff9900",
+	      }, 500);
+	      setTimeout(function(){
+		$("#cat7").animate({
+		  borderColor: "#ff9900",
+		}, 1000, function(){ console.log("done") });
+	      }, 500 + 750);
+	    }, 750 + 250);
 	  }, 250);
-	  });
-	}, 250);
 	});
       }, 500);
-      });
-     }, 500);
     });
+  }
+
+  animateCats();
+  $(".img-circle").click(function(){
+    $(".img-circle").clearQueue();
+    $(this).animate({
+      borderColor: "#216C2A"
+    }, 350);
+    console.log("hey");
+    $(".img-circle").animate({
+      borderColor: "#666"
+    }, 500);
+    setTimeout(animateCats, 400);
+  });
 
   function updateSummary(){
     var target = $("input[name=target]").val() ? $("input[name=target]").val()

@@ -19,41 +19,39 @@
             </div>
             <% end %>
 	  <div class="form-group" >
-	    <label for="engagements_per_prey" data-container="body"
-	    data-toggle="tooltip" data-placement="right" title="Choose a target
-	    account with followers that you think would likely follow you.
-	    MR_BOTS will choose your 'prey' from this account's followers, and
-	    then automatically engage them.">
-	    Target <span class="badge"><i class="fa fa-question" ></i></span></label>
-	    <input type="text" class="form-control" id="target" name="target" value="<%= flash[:c] ? flash[:c]["target"] : '' %>" placeholder="sbarrochica">
+	    <label for="engagements_per_prey" >Campaign Target</label>
+	    <p>Choose an account with followers that would likely follow you.
+	      MR_BOTS will choose your 'prey' from among this account's followers,
+	      and then engage them automatically.<p>
+	    <input type="text" class="form-control" id="target" name="target" 
+	      value="<%= flash[:c] ? flash[:c]["target"] : '' %>" placeholder="sbarrochica">
 	  </div>
+	  <hr>
 	  <div class="form-group">
-	    <label for="engagements_per_prey" data-container="body"
-	    data-toggle="tooltip" data-placement="right" title="Right now, the
-	    only way MR_BOTS can engage with prey is via faving their content.  
-	    In the future, we plan to build systems that engage in more engaging
-	    ways.">
-	    Engagement Type <span class="badge"><i class="fa fa-question" ></i></span></label>
+	    <label for="engagement_type">Engagement Type</label>
+	    <p>Right now, the only way MR_BOTS can engage is via faving
+	      content.</p>
             <select class="form-control" id="engagement-type" name="engagement_type">
                <option>Favorite</option>
             </select>
 	  </div>
+	  <hr>
 	  <div class="form-group">
-	    <label for="engagements_per_day" data-container="body"
-	    data-toggle="tooltip" data-placement="right" title="Set this low if you don't want to seem
-	    thirsty or spammy, or high if you want to be aggressive.">Max
-	    Engagements Per Day <span class="badge"><i class="fa fa-question" ></i></span></label>
+	    <label for="engagements_per_day">Engagments Per Day</label>
+	    <input id="max-engagements-per-day" type="hidden" value="30">
+	    <p>Set this low if you don't want to seem thirsty or spammy, or high
+	      if you want to be aggressive.</p>
 	    <p id="engagements_per_day_preview"></p>
 	    <div id="engagements_per_day_slider"></div>
 	    <input type="hidden" class="form-control" name="engagements_per_day"
 	    value="<%= flash[:c] ? flash[:c]["engagements_per_day"] : 20 %>">
 	  </div>
+	  <hr>
 	  <div class="form-group">
-	    <label for="engagements_per_prey" data-container="body"
-	    data-toggle="tooltip" data-placement="right" title="Set
-	    this low to reach a large number of potential followers quickly, or
-	    high if you want to really convince people that you care about them.">
-	    Engagements Per Prey <span class="badge"><i class="fa fa-question" ></i></span></label>
+	    <label for="engagements_per_prey">Engagements Per Prey</label>
+	    <p>Set this low to reach a large number of potential followers
+	      quickly, or high if you want to really convince people that you care
+	      about them.</p>
 	    <p id="engagements_per_prey_preview"></p>
 	    <div id="engagements_per_prey_slider"></div>
 	    <input type="hidden" class="form-control" name="engagements_per_prey"
@@ -64,6 +62,7 @@
 	  <input type="hidden" name="mr_score" value= "0">
 
 	  </div>
+	  <hr>
 	  <p id="campaign-summary"></p>
 	  <br>
 	  <button type="submit" class="btn btn-primary">Start Campaign</button>
