@@ -5,7 +5,7 @@ $(document).ready(function(){
 
   $('[data-toggle="tooltip"]').tooltip();
   $("#engagements_per_day_slider").slider({
-      max: 30,
+      max: $("input[name=engagements_per_day]").data("max"),
       min: 1,
       step: 1,
       value: $("input[name=engagements_per_day]").val(),

@@ -1,3 +1,10 @@
+MAX_FOR_TWITTER_OVER_365_DAYS_CONST = 312
+MAX_FOR_TWITTER_OVER_120_DAYS_CONST = 225
+MAX_FOR_TWITTER_OVER_30_DAYS_CONST = 100
+MAX_FOR_TWITTER_OVER_7_DAYS_CONST = 30
+MAX_FOR_TWITTER_UNDER_7_DAYS_CONST = 15
+
+
 class Account < ActiveRecord::Base
   def self.create_or_update_with_omniauth(auth)  
     account = self.find_by_provider_and_uid(auth["provider"], auth["uid"])
@@ -43,6 +50,22 @@ class Account < ActiveRecord::Base
   end
 
   def get_max_engagements_per_day()
+    if self.provider = "twitter" and self.account_creation_date then 
+      account_age = Time.new.to_date - self.account_creation_date.to_date
+      account_age = account_age.to_i
+      if account_age > 365 then
+	return MAX_FOR_TWITTER_OVER_365_DAYS_CONST
+      elsif account_age > 120 then
+	return MAX_FOR_TWITTER_OVER_120_DAYS_CONST
+      elsif account_age > 30 then 
+	return MAX_FOR_TWITTER_OVER_30_DAYS_CONST
+      elsif account_age > 7 then 
+	return MAX_FOR_TWITTER_OVER_7_DAYS_CONST
+      else 
+	return MAX_FOR_TWITTER_UNDER_7_DAYS_CONST
+      end
+    end
+    return MAX_FOR_TWITTER_UNDER_7_DAYS_CONST
   end
 
   def get_max_engagements_per_prey()

@@ -40,11 +40,13 @@
 	    <label for="engagements_per_day">Engagments Per Day</label>
 	    <input id="max-engagements-per-day" type="hidden" value="30">
 	    <p>Set this low if you don't want to seem thirsty or spammy, or high
-	      if you want to be aggressive.</p>
+	      if you want to be aggressive.  The maximum value is based on
+	      account age.</p>
 	    <p id="engagements_per_day_preview"></p>
 	    <div id="engagements_per_day_slider"></div>
 	    <input type="hidden" class="form-control" name="engagements_per_day"
-	    value="<%= flash[:c] ? flash[:c]["engagements_per_day"] : 20 %>">
+	    value="<%= flash[:c] ? flash[:c]["engagements_per_day"] : 15 %>"
+     	    data-max="<%= @max_engagements_per_day %>">
 	  </div>
 	  <hr>
 	  <div class="form-group">
@@ -55,7 +57,8 @@
 	    <p id="engagements_per_prey_preview"></p>
 	    <div id="engagements_per_prey_slider"></div>
 	    <input type="hidden" class="form-control" name="engagements_per_prey"
-	    value="<%= flash[:c] ? flash[:c]["engagements_per_prey"] : 2 %>">
+	    value="<%= flash[:c] ? flash[:c]["engagements_per_prey"] : 2 %>"
+	    data-max="15">
 	  </div>
 	  <div>
 	  <input type="hidden" name="account_id" value= "<%= Account.find(current_account).id %>">

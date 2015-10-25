@@ -3,6 +3,7 @@ class CampaignController < ApplicationController
       if !current_account
 	redirect_to root_url
       end
+      @max_engagements_per_day = current_account.get_max_engagements_per_day()
   end
 
   def create 
