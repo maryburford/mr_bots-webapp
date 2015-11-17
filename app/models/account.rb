@@ -17,8 +17,9 @@ class Account < ActiveRecord::Base
       account.secret = auth["credentials"]["secret"]
       account.account_creation_date = auth["extra"]["raw_info"]["created_at"]
       account.save
+      return account
     else 
-      create! do |account|  
+     return create! do |account|  
 	account.provider = auth["provider"]  
 	account.uid = auth["uid"]  
 	account.name = auth["info"]["name"]
@@ -30,7 +31,6 @@ class Account < ActiveRecord::Base
         account.account_creation_date = auth["extra"]["raw_info"]["created_at"]
       end
     end
-    return account
   end
 
   def self.user_exists?(username)
