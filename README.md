@@ -10,7 +10,7 @@ Add this to your .bashrc or .bash_profile, based on your postgres user.
 
 ## SSH and Database Access to Prod
 
-1. `ssh -i /path/to/mr_bots.pem ubuntu@mrbots.net
+1. `ssh -i /path/to/mr_bots.pem ubuntu@mrbots.net`
 2. `psql -U mr_bots-webapp -d production`
 
 ## Steps for Deploying Update to Prod
