@@ -4,7 +4,9 @@
     <br>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><strong>Create Bot for <%= current_account.name %></strong></h3>
+        <h3 class="panel-title"><strong>Create Bot for <span
+	    id="current-name"><%= current_account.name %></span></strong></h3>
+	<span id="current-nickname"><%= current_account.nickname %></span>
       </div>
       <div class="panel-body">
 	<form action="/campaign/create" method="post">

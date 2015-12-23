@@ -87,15 +87,22 @@ $(document).ready(function(){
   });
 
   function updateSummary(){
+    var botType = $("[name=engagement_type]").val();
     var target = $("input[name=target]").val() ? $("input[name=target]").val()
     : "someone";
     var perPrey = $("input[name=engagements_per_prey]").val();
     var totalPrey = Math.floor($("input[name=engagements_per_day]").val()/perPrey);
-    var summary = "<strong>Campaign Summary:</strong> ";
-    summary += "Every day, MR_BOTS will randomly pick <b>" + totalPrey + "</b>";
-    summary += " of <b>" + target + "</b>'s followers, ";
-    summary += "and favorite <b>" + perPrey + "</b> of their tweets, ";
-    summary += "for a total of <b>" + totalPrey*perPrey + "</b> engagements.";
+    var summary = "<strong>Campaign Summary:</strong> Every day, ";
+    if(botType == "Favorite"){
+      summary += "MR_BOTS will randomly pick <b>" + totalPrey + "</b>";
+      summary += " of <b>" + target + "</b>'s followers, ";
+      summary += "and favorite <b>" + perPrey + "</b> of their tweets, ";
+      summary += "for a total of <b>" + totalPrey*perPrey + "</b> engagements.";
+    } else if (botType == "Clone"){
+      summary += "MR_BOTS will algorithmically generate tweets based on ";
+      summary += "<b>"  + target + "</b>, ";
+      summary += "and post them using  <b>@" + $("#current-nickname").html() + "<b>.";
+    }
     $("#campaign-summary").html(summary);
   }
 
