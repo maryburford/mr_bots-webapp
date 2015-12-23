@@ -40,10 +40,13 @@
 	      <label for="engagement-type">Target</label>
               <p> <%= campaign.target %></p>
 	    </div>
+	    <% if campaign.engagement_type == "Favorite" then %>
 	    <div class="form-group">
 	      <label for="engagement-level">Engagements Per Day</label>
               <p> <%= campaign.engagements_per_day %></p>
 	    </div>
+	    <% end %>
+	    <% if campaign.engagement_type == "Favorite" then %>
 	    <div class="form-group">
 	      <label for="engagement-level">Engagments Per Prey</label>
               <p> <%= campaign.engagements_per_prey %></p>
@@ -53,16 +56,18 @@
               <p><%= campaign.mr_score %>%</p>
 	    </div>
 	    <div class="form-group">
-	      <label for="engagement-level" data-container="body" data-toggle="tooltip" data-placement="right" title="This is how many followers you've gotten">Followers Acquired<span class="badge"><i class="fa fa-question" ></i></span></label>
+	      <label for="engagement-level" data-container="body"
+		data-toggle="tooltip" data-placement="right" title="This is how
+		many followers you've gained from this campaign."># Followers Acquired <span class="badge"><i class="fa fa-question" ></i></span></label>
               <p><%= campaign.followers_acquired %></p>
 	    </div>
 	    <div class="form-group">
-	      <label for="engagement-level" data-container="body" data-toggle="tooltip" data-placement="right" title="This is how many followers you've gotten">Followers Acquired<span class="badge"><i class="fa fa-question" ></i></span></label>
+	      <label for="engagement-level">Followers Acquired</label>
 	      <% @new_followers[campaign.id].each do |nf| %>
-
               <li><%= nf.user_name %></li>
                <% end %>
 	    </div>
+	    <% end %>
 	    <hr>
 	    <% if campaign.active then %>
 	    <%= button_to 'Deactivate', {:controller => "campaign", :action => "update", :campaign_id => campaign.id, :active => "false", :method=>:patch}, {class: 'btn btn-danger'}%>

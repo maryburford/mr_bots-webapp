@@ -25,8 +25,8 @@ class CampaignController < ApplicationController
                      active: true, 
 		                 account_id: account_id, 
                      engagement_type: engagement_type,
-                     engagements_per_day: engagements_per_day,
-                     engagements_per_prey: engagements_per_prey,
+                     engagements_per_day: engagement_type == "Clone" ? 1 : engagements_per_day,
+                     engagements_per_prey: engagement_type == "Clone" ? 1 : engagements_per_prey,
                      mr_score: mr_score)
 
     if !@c.valid? then 

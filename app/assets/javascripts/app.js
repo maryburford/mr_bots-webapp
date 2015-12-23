@@ -92,7 +92,7 @@ $(document).ready(function(){
     : "someone";
     var perPrey = $("input[name=engagements_per_prey]").val();
     var totalPrey = Math.floor($("input[name=engagements_per_day]").val()/perPrey);
-    var summary = "<strong>Campaign Summary:</strong> Every day, ";
+    var summary = "<strong>Summary:</strong> Every day, ";
     if(botType == "Favorite"){
       summary += "MR_BOTS will randomly pick <b>" + totalPrey + "</b>";
       summary += " of <b>" + target + "</b>'s followers, ";
