@@ -20,3 +20,10 @@ Add this to your .bashrc or .bash_profile, based on your postgres user.
 3. Generate new static assets with `RAILS_ENV=production rake assets:precompile`
 4. Restart the service with `sudo service unicorn_mr_bots-webapp-PROD stop`, `sudo service unicorn_mr_bots-webapp-PROD start`
 
+## Some Important Files
+
+1. `/app/assets/javascripts/app.js` is the main/only javascript file for UI
+
+## Renamings
+- `engagement_type` -> `bot_type`
+- `campaign` -> `bot`

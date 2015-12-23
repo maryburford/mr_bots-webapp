@@ -3,20 +3,23 @@
     <br>
     <div class="panel panel-default">
       <div class="panel-heading">
-         <h2 class="panel-title"><strong><%= current_account.name %>'s Campaigns</strong></h2>
+         <h2 class="panel-title"><strong><%= current_account.name %>'s Bots</strong></h2>
       </div>
       <div class="panel-body">
 	<% if @campaigns.length == 0 then %>
-	  <h4><strong>Create a new campaign</strong>.  A campaign is an automated social engagement strategy that will gradually <strong> gain you friends and followers</strong>.</h4>
+	  <h4><strong>Create a new bot</strong>.  You can create a <strong>clone
+	      bot</strong> that will generate tweets based on another account, or a <strong>like
+	      bot</strong> that will gain you friends and followers.</h4>
 	<% else %>
-	<h4>At present, you can only have one active campaign at a time per account.  Either <strong>create a new campaign</strong>, or <strong>reactivate an old one</strong>.  Log out to manage campaigns for another account.</h4>
+	<h4>You can only have one of each type of bot active at one time.  Either <strong>create a new bot</strong>, or <strong>reactivate an old one</strong>.  Log out to manage campaigns for another account.</h4>
 	<% end %>
 	<br>
 	<% if current_account.provider == 'instagram' %>
 	<a href="/campaign/create_form" class="btn btn-instagram btn-lg"><i class="fa fa-bolt"></i> Create Instagram Campaign</a>
 	<% end %>
 	<% if current_account.provider == 'twitter' %>
-	<a href="/campaign/create_form" class="btn btn-twitter btn-lg"><i class="fa fa-bolt"></i> Create Twitter Campaign</a>
+	<a href="/campaign/create_form" class="btn btn-twitter btn-lg"><i
+	    class="fa fa-bolt"></i> Create Twitter Bot</a>
 	<% end %>
       </div>
     </div>
@@ -24,23 +27,18 @@
     <% @campaigns.each do |campaign| %>
       <div class="panel <%= campaign.active ? "panel-primary" : "panel-default" %>">
 	<div class="panel-heading">
-	  <h3 class="panel-title">Target: <strong> <%= campaign.target %> </strong></h3>
+	  <h3 class="panel-title">
+	    <strong> <%= campaign.engagement_type %> Bot </strong>
+	  </h3>
 	</div>
 	<div class="panel-body">
-	    <% if campaign.updated_at == campaign.created_at then %>
-	      <div class="form-group">
-		<label for="engagement-level">Campaign Start Date</label>
-		<p> <%= campaign.created_at.to_s(:long) %></p>
-	      </div>
-	    <% else %>
-	      <div class="form-group">
-		<label for="engagement-level">Campaign Restart Date</label>
-		<p> <%= campaign.updated_at.to_s(:long) %></p>
-	      </div>
-	  <% end %>
 	    <div class="form-group">
-	      <label for="engagement-type">Engagement Type</label>
-              <p> <%= campaign.engagement_type %></p>
+	      <label for="engagement-level">Bot Birth Date</label>
+	      <p> <%= campaign.created_at.to_s(:long) %></p>
+	    </div>
+	    <div class="form-group">
+	      <label for="engagement-type">Target</label>
+              <p> <%= campaign.target %></p>
 	    </div>
 	    <div class="form-group">
 	      <label for="engagement-level">Engagements Per Day</label>

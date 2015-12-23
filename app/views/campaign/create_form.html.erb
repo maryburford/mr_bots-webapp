@@ -4,7 +4,7 @@
     <br>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title"><strong>Create Campaign for <%= current_account.name %></strong></h3>
+        <h3 class="panel-title"><strong>Create Bot for <%= current_account.name %></strong></h3>
       </div>
       <div class="panel-body">
 	<form action="/campaign/create" method="post">
@@ -18,25 +18,29 @@
               </ul>
             </div>
             <% end %>
-	  <div class="form-group" >
-	    <label for="engagements_per_prey" >Campaign Target</label>
-	    <p>Choose an account with followers that would likely follow you.
-	      MR_BOTS will choose your 'prey' from among this account's followers,
-	      and then engage them automatically.<p>
-	    <input type="text" class="form-control" id="target" name="target" 
-	      value="<%= flash[:c] ? flash[:c]["target"] : '' %>" placeholder="sbarrochica">
-	  </div>
-	  <hr>
 	  <div class="form-group">
-	    <label for="engagement_type">Engagement Type</label>
-	    <p>Right now, the only way MR_BOTS can engage is via faving
-	      content.</p>
-            <select class="form-control" id="engagement-type" name="engagement_type">
+	    <label for="engagement_type">Bot Type</label>
+	    <p>A <strong>clone bot</strong> will algorithmically generate new tweets based on
+	    an existing twitter account.  A <strong>favorite bot</strong> will like tweets in a
+	    targeted manner.</p>
+            <select class="form-control" name="engagement_type">
+               <option>Clone</option>
                <option>Favorite</option>
             </select>
+	    <hr>
 	  </div>
-	  <hr>
-	  <div class="form-group">
+	  <div class="form-group" >
+	    <label for="target" >Bot Target</label>
+	    <p data-bot-type="Favorite">Choose an account with followers that would likely follow you.
+	      MR_BOTS will choose your 'prey' from among this account's followers,
+	      and then engage them automatically.</p>
+	    <p data-bot-type="Clone">Choose the account that will act as the
+	    source material for the algorithmically generated tweets.</p>
+	    <input type="text" class="form-control" id="target" name="target" 
+	      value="<%= flash[:c] ? flash[:c]["target"] : '' %>" placeholder="sbarrochica">
+	    <hr>
+	  </div>
+	  <div data-bot-type="Favorite" class="form-group">
 	    <label for="engagements_per_day">Engagments Per Day</label>
 	    <input id="max-engagements-per-day" type="hidden" value="30">
 	    <p>Set this low if you don't want to seem thirsty or spammy, or high
@@ -47,9 +51,9 @@
 	    <input type="hidden" class="form-control" name="engagements_per_day"
 	    value="<%= flash[:c] ? flash[:c]["engagements_per_day"] : 15 %>"
      	    data-max="<%= @max_engagements_per_day %>">
-	  </div>
 	  <hr>
-	  <div class="form-group">
+	  </div>
+	  <div data-bot-type="Favorite"  class="form-group">
 	    <label for="engagements_per_prey">Engagements Per Prey</label>
 	    <p>Set this low to reach a large number of potential followers
 	      quickly, or high if you want to really convince people that you care
@@ -59,13 +63,13 @@
 	    <input type="hidden" class="form-control" name="engagements_per_prey"
 	    value="<%= flash[:c] ? flash[:c]["engagements_per_prey"] : 2 %>"
 	    data-max="15">
+	    <hr>
 	  </div>
 	  <div>
 	  <input type="hidden" name="account_id" value= "<%= Account.find(current_account).id %>">
 	  <input type="hidden" name="mr_score" value= "0">
 
 	  </div>
-	  <hr>
 	  <p id="campaign-summary"></p>
 	  <br>
 	  <button type="submit" class="btn btn-primary">Start Campaign</button>

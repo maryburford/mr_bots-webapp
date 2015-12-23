@@ -3,6 +3,9 @@ $(document).ready(function(){
     $(this).find("i").addClass("fa-spin");
   });
 
+  setVisibility();
+  $("[name=engagement_type]").change(setVisibility);
+
   $('[data-toggle="tooltip"]').tooltip();
   $("#engagements_per_day_slider").slider({
       max: $("input[name=engagements_per_day]").data("max"),
@@ -33,6 +36,11 @@ $(document).ready(function(){
 
   $("input[name=target]").change(updateSummary);
 
+  // Show or hide inputs based on bot type
+  function setVisibility(){
+    $("[data-bot-type]").hide();
+    $("[data-bot-type=" + $("[name=engagement_type]").val() +"]").show();
+  }
 
   function animateCats(){
   // ptsteadman, 2015
