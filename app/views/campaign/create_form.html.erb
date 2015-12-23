@@ -6,7 +6,7 @@
       <div class="panel-heading">
         <h3 class="panel-title"><strong>Create Bot for <span
 	    id="current-name"><%= current_account.name %></span></strong></h3>
-	<span id="current-nickname"><%= current_account.nickname %></span>
+	<span id="current-nickname" class="hidden"><%= current_account.nickname %></span>
       </div>
       <div class="panel-body">
 	<form action="/campaign/create" method="post">
@@ -26,8 +26,9 @@
 	    an existing twitter account.  A <strong>favorite bot</strong> will like tweets in a
 	    targeted manner.</p>
             <select class="form-control" name="engagement_type">
-               <option>Clone</option>
-               <option>Favorite</option>
+	      <% bot_type = flash[:c] ? flash[:c]["engagement_type"] : '' %>
+	      <option <%= if bot_type == "Clone" then "selected" end %>>Clone</option>
+	      <option <%= if bot_type == "Favorite" then "selected" end %>>Favorite</option>
             </select>
 	    <hr>
 	  </div>
