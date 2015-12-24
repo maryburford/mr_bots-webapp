@@ -32,7 +32,8 @@ class CampaignController < ApplicationController
     if !@c.valid? then 
       redirect_to campaign_create_form_url, flash: { error_messages: @c.errors.full_messages, c: @c}
     else 
-      Campaign.where(account_id: current_account.id).update_all(active: false)
+      Campaign.where("account_id = ? AND engagement_type = ?", current_account.id,
+		  @c.engagement_type).update_all(active: false)
       @c.save
       redirect_to account_campaigns_url
     end
@@ -45,8 +46,9 @@ class CampaignController < ApplicationController
 
     #todo: make sure it is one of user's campaigns
 
-    Campaign.where(account_id: current_account.id).update_all(active: false)
     c = Campaign.find(params[:campaign_id])
+    Campaign.where("account_id = ? AND engagement_type = ?", current_account.id,
+		  c.engagement_type).update_all(active: false)
     c.update(active: params[:active])
     redirect_to root_url
   end
