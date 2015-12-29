@@ -14,12 +14,13 @@ class Campaign < ActiveRecord::Base
           errors.add(:target, "account is invalid")
         end
       end
-    else
+    if target !~ /,/
     if !Account.user_exists?(target) then
         errors.add(:target, "account is invalid")
       end
     end
   end
+end
 
   def less_than_max_engagements
     if engagements_per_day > Account.find(account_id).get_max_engagements_per_day() then

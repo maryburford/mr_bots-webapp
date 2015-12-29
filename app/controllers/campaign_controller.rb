@@ -6,7 +6,7 @@ class CampaignController < ApplicationController
       @max_engagements_per_day = current_account.get_max_engagements_per_day()
   end
 
-  def create 
+  def create
       if !current_account
 	redirect_to root_url
       end
@@ -21,17 +21,17 @@ class CampaignController < ApplicationController
     mr_score = params["mr_score"]
 
 
-    @c = Campaign.new(target: target, 
-                     active: true, 
-		                 account_id: account_id, 
+    @c = Campaign.new(target: target,
+                     active: true,
+		                 account_id: account_id,
                      engagement_type: engagement_type,
                      engagements_per_day: engagement_type == "Clone" ? 1 : engagements_per_day,
                      engagements_per_prey: engagement_type == "Clone" ? 1 : engagements_per_prey,
                      mr_score: mr_score)
 
-    if !@c.valid? then 
+    if !@c.valid? then
       redirect_to campaign_create_form_url, flash: { error_messages: @c.errors.full_messages, c: @c}
-    else 
+    else
       Campaign.where("account_id = ? AND engagement_type = ?", current_account.id,
 		  @c.engagement_type).update_all(active: false)
       @c.save
@@ -57,7 +57,7 @@ class CampaignController < ApplicationController
     if !current_account
       redirect_to root_url
     end
-    
+
     #todo: make sure it is one of user's campaigns
     Campaign.find(params[:campaign_id]).delete
     redirect_to root_url
