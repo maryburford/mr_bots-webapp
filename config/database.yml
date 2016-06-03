@@ -15,6 +15,10 @@
 # gem 'pg'
 #
 default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
 development:
   adapter: postgresql
   encoding: unicode
